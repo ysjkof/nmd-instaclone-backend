@@ -1,0 +1,19 @@
+{
+  "name": "study-instaclone",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysjkof/study-instaclone-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ysjkof/study-instaclone-backend/issues"
+  },
+  "homepage": "https://github.com/ysjkof/study-instaclone-backend#readme"
+}
