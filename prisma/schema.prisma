@@ -10,6 +10,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// 프리스마는 기본적으로 모두 require고 ?를 붙이면 un-require다.
 model Movie {
   id        Int      @id @default(autoincrement())
   title     String
