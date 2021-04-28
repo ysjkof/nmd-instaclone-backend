@@ -9,7 +9,8 @@ import { makeExecutableSchema } from "graphql-tools";
 // 합칠 파일에서 export를 해야 loadFiles를 할 수 있다.
 const loadedTypes = loadFilesSync(`${__dirname}/**/*.typeDefs.js`);
 // .queries.js나 mutations.js를 찾는다.
-const loadedResolvers = loadFilesSync(`${__dirname}/**/*.{queries,mutations}.js`);
+// const loadedResolvers = loadFilesSync(`${__dirname}/**/*.{queries,mutations}.js`);
+const loadedResolvers = loadFilesSync(`${__dirname}/**/*.resolvers.js`);
 
 const typeDefs = mergeTypeDefs(loadedTypes);
 const resolvers = mergeResolvers(loadedResolvers);
