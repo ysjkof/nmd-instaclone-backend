@@ -1,16 +1,19 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import client from "../../client";
 
 export default {
   Mutation: {
-    editProfile: async (_, { firstName, lastName, username, email, password: newPassword }) => {
+    editProfile: async (_, { firstName, lastName, username, email, password: newPassword, token }) => {
+      // const verifiedToken = await jwt.verify(token, process.env.SECRET_KEY); 아래는 ES6문법으로 verifiedToken 안에 id를 풀었다. updateUser의 where에 쓰려고
+      const { id } = await jwt.verify(token, process.env.SECRET_KEY);
       let uglyPassword = null;
       if (newPassword) {
         uglyPassword = await bcrypt.hash(newPassword, 10);
       }
       const updatedUser = await client.user.update({
         where: {
-          id: 1,
+          id,
         },
         data: {
           firstName,
