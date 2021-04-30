@@ -18,8 +18,8 @@ const apollo = new ApolloServer({
 
 const app = express();
 app.use(logger("tiny"));
-app.use("/static", express.static("uploads"));
 apollo.applyMiddleware({ app });
+app.use("/static", express.static("uploads"));
 app.listen({ port: PORT }, () => {
   console.log(`✅ Server is running on http://localhost:${PORT}/`);
 });

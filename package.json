@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Instaclone Backend.",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
+    "preinstall": "npx npm-force-resolutions@0.0.3",
     "dev": "nodemon --exec babel-node server",
     "migrate": "npx prisma migrate dev",
     "studio": "npx prisma studio",
