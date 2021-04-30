@@ -1,6 +1,5 @@
 import { loadFilesSync } from "@graphql-tools/load-files";
 import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
-import { makeExecutableSchema } from "graphql-tools";
 
 // __dirname = 현재 실행 중인 폴더 경로.
 // __filename = 현재 실행 중인 파일 경로.
@@ -12,9 +11,5 @@ const loadedTypes = loadFilesSync(`${__dirname}/**/*.typeDefs.js`);
 // const loadedResolvers = loadFilesSync(`${__dirname}/**/*.{queries,mutations}.js`);
 const loadedResolvers = loadFilesSync(`${__dirname}/**/*.resolvers.js`);
 
-const typeDefs = mergeTypeDefs(loadedTypes);
-const resolvers = mergeResolvers(loadedResolvers);
-
-const schema = makeExecutableSchema({ typeDefs, resolvers });
-
-export default schema;
+export const typeDefs = mergeTypeDefs(loadedTypes);
+export const resolvers = mergeResolvers(loadedResolvers);
