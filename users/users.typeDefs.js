@@ -3,7 +3,7 @@ import { gql } from "apollo-server-core";
 // password는 묻지 않을 거야. 필요 없다.
 export default gql`
   type User {
-    id: String!
+    id: Int!
     firstName: String!
     lastName: String
     username: String!
@@ -12,6 +12,7 @@ export default gql`
     updatedAt: String!
     bio: String
     avatar: String
+    photos: [Photo]
     following: [User]
     followers: [User]
     totalFollowing: Int!
