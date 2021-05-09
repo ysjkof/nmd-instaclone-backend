@@ -65,6 +65,7 @@ export default {
           user: { connect: { id: loggedInUser.id } },
         },
       });
+      // { roomUpdates: { ...message } } 이게 payload다.
       pubsub.publish(NEW_MESSAGE, { roomUpdates: { ...message } });
       return {
         ok: true,
