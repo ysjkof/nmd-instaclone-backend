@@ -1,4 +1,5 @@
 import { gql } from "apollo-server-core";
+import { GraphQLUpload } from "graphql-upload";
 
 export default gql`
   type EditProfileResult {
