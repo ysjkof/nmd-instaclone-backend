@@ -8,10 +8,10 @@ AWS.config.update({
 });
 // Body는 파일을 뜻함 file자체는 아니고 stream이다.
 
-export const uploadToS3 = async (file, userId) => {
+export const uploadToS3 = async (file, userId, folderName) => {
   const { filename, createReadStream } = await file;
   const readStream = createReadStream();
-  const objectName = `${userId}-${Date.now()}-${filename}`;
+  const objectName = `${folderName}/${userId}-${Date.now()}-${filename}`;
   try {
     const { Location } = await new AWS.S3()
       .upload({

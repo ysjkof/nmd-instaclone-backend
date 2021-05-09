@@ -10,7 +10,7 @@ const resolverFn = async (_, { firstName, lastName, username, email, password: n
   // console.log(loggedInUser);
   let avatarUrl = null;
   if (avatar) {
-    avatarUrl = await uploadToS3(avatar, loggedInUser.id);
+    avatarUrl = await uploadToS3(avatar, loggedInUser.id, "avatars");
     // 여기는 cloud에 연동할때 필요 없고 local server에 파일을 저장할때만 쓴다.
     // const { filename, createReadStream } = await avatar;
     // const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
