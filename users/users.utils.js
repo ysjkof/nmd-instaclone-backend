@@ -34,6 +34,7 @@ export function protectedResolver(ourResolver) {
     if (!context.loggedInUser) {
       const query = info.operation.operation === "query";
       if (query) {
+        // 토큰이 유효하지 않거나 없으면 null 리턴함.
         return null;
       } else {
         return {
