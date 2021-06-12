@@ -5,6 +5,7 @@ export default {
   Query: {
     seeFeed: protectedResolver((_, __, { loggedInUser }) =>
       client.photo.findMany({
+        // 팔로워한 사람 피드와 내 피드를 불러온다.
         where: {
           OR: [
             {
