@@ -29,6 +29,8 @@ export const getUser = async (token) => {
 //     return ourResolver(root, args, context, info);
 //   };
 // }
+
+// loggedInUser가 없다면 코드 실행을 종료하고 에러를 리턴한다.
 export function protectedResolver(ourResolver) {
   return function (root, args, context, info) {
     if (!context.loggedInUser) {

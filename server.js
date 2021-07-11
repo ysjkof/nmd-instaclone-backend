@@ -12,6 +12,7 @@ const apollo = new ApolloServer({
   resolvers,
   typeDefs,
   uploads: false,
+  // context === 모든 resolver에서 접근가능한 정보를 넣을 수 있는 object
   context: async (ctx) => {
     if (ctx.req) {
       return {
