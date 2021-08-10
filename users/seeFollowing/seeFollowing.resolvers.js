@@ -1,5 +1,6 @@
 import client from "../../client";
 
+// cursor pagination
 export default {
   Query: {
     seeFollowing: async (_, { username, lastId }) => {
@@ -13,11 +14,13 @@ export default {
           error: "User not found",
         };
       }
-      const following = await client.user.findUnique({ where: { username } }).following({
-        take: 5,
-        skip: lastId ? 1 : 0,
-        ...(lastId && { cursor: { id: lastId } }),
-      });
+      const following = await client.user
+        .findUnique({ where: { username } })
+        .following({
+          take: 5,
+          skip: lastId ? 1 : 0,
+          ...(lastId && { cursor: { id: lastId } }),
+        });
       return {
         ok: true,
         following,

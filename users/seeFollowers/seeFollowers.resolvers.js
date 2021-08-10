@@ -1,5 +1,6 @@
 import client from "../../client";
 
+// offset pagination
 export default {
   Query: {
     seeFollowers: async (_, { username, page }) => {
@@ -14,10 +15,12 @@ export default {
           error: "User not found",
         };
       }
-      const followers = await client.user.findUnique({ where: { username } }).followers({
-        take: 5,
-        skip: (page - 1) * 5,
-      });
+      const followers = await client.user
+        .findUnique({ where: { username } })
+        .followers({
+          take: 5,
+          skip: (page - 1) * 5,
+        });
       const totalFollowers = await client.user.count({
         where: { following: { some: { username } } },
       });
